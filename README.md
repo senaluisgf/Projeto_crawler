@@ -1,13 +1,16 @@
-#Desafio_JusBrasil#
-Jusbrasil - Desafio Backend Engineer | Data
+# Jusbrasil - Desafio Backend Engineer | Data
+---
 
-##Requisitos##
+## Requisitos
 
-bibliotecas:
-[x]Flask
-[x]Selenium
+### Bibliotecas:
+1. Numpy
+1. Selenium
+1. Flask
 
 
-##Execução##
-"python3 API.py"
-rota inicial = "/processos"
+## Execução
+Clone o repositório abra um terminal e execute **"python3 API.py"**
+
+### Observações:
+É necessário cadastrar os tribunais antes de dar prosseguimento à execução das consultas dos processos
