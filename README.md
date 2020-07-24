@@ -1,15 +1,13 @@
-# Desafio_JusBrasil
+#Desafio_JusBrasil#
 Jusbrasil - Desafio Backend Engineer | Data
 
-Requisitos
+##Requisitos##
 
-bibliotecas
-flask
-elenium
+bibliotecas:
+[x]Flask
+[x]Selenium
 
-arquivos
-Copiar arquivo geckodriver da pasta "src" do a pasta "/bin" de sua máquina
 
-Execução
+##Execução##
 "python3 API.py"
 rota inicial = "/processos"
