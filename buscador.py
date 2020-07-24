@@ -8,6 +8,7 @@ class Buscador(object):
     #opcoes que fazem o navegador carregar em segundo plano
     options = Options()
     options.add_argument("--headless")
+    # options.binary_location = "/usr/bin/firefox"
 
     def __init__(self, numeroDigitoAno, JTRNumero, foroNumero):
         try:

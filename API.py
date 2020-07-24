@@ -25,7 +25,7 @@ sites_tjal = [
 sites_tjms = [
     {
         "Grau": "1_instancia",
-        "URL": ' https://esaj.tjms.jus.br/cpopg5/open.do'
+        "URL": 'https://esaj.tjms.jus.br/cpopg5/open.do'
     },
     {
         "Grau": "2_instancia",
@@ -42,7 +42,7 @@ processos = []
 #-----------------------------------------------------##-----------------------------------------------------#
 
 #rota inicial da nossa API
-@app.route('/processos', methods=['GET'])
+@app.route('/', methods=['GET'])
 def home():
     return '''
             <h1>Bem-Vindo!
@@ -50,9 +50,9 @@ def home():
             em mãos<br>
             Agora que tem o número do processo, você deve adicioná-lo a URL do site atual.
             <h2>Exemplo:<br>
-            Caso você queira obter informações do processo "0710802-55.2018.8.02.0001" e assumindo que a url atual é http://127.0.0.1:5000/processos
+            Caso você queira obter informações do processo "0710802-55.2018.8.02.0001" e assumindo que a url atual é http://127.0.0.1:5000
              obtendo assim o endereço
-            <p>"http://127.0.0.1:5000/processos/0710802-55.2018.8.02.0001"
+            <p>"http://127.0.0.1:5000/0710802-55.2018.8.02.0001"
             <p>Algumas sugestões de processos:<br>
             0710802-55.2018.8.02.0001<br>
             0821901-51.2018.8.12.0001<br>
@@ -62,7 +62,7 @@ def home():
         '''
 
 #rota para que o usuario possa obter informações do processo que deseja
-@app.route('/processos/<string:numero_processo>', methods=['GET'])
+@app.route('/<string:numero_processo>', methods=['GET'])
 def getProcesso(numero_processo):
     aux = numero_processo.split('.')
     numero_processo1 = aux[0] + '.' +aux[1]
@@ -78,7 +78,7 @@ def getProcesso(numero_processo):
         #procurar o tribunal correto em que o processo deve ser pesquisado
         busca = Buscador(numero_processo1, numero_processo2, numero_processo3)
 
-        if busca.URLS_IMPORTANTES:#caso haja sites me que o processo deva ser pesquisado
+        if busca.URLS_IMPORTANTES:#caso haja sites em que o processo deva ser pesquisado
             #pega cada par ordenado de grau e html_pagina da primeira instancia do processo
             (grau,html_pagina) = busca.getPrimeiraInstancia()
 
