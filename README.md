@@ -1,16 +1,13 @@
 # Jusbrasil - Desafio Backend Engineer | Data
----
-
+Desafio proposto à mim em uma entrevista realizada por Thiago Avelino 
 ## Requisitos
-
 ### Bibliotecas:
-1. Numpy
-1. Selenium
-1. Flask
-
-
+* Numpy
+* Selenium
+* Flask
+### Navegador:
+* Mozilla Firefox
+### Arquivos:
+É necessário entrar em *https://github.com/mozilla/geckodriver/releases* e baixar um geckodriver compatível com a versão do seu Firefox e extraia o arquivo na pasta **/usr/bin**
 ## Execução
 Clone o repositório abra um terminal e execute **"python3 API.py"**
-
-### Observações:
-É necessário cadastrar os tribunais antes de dar prosseguimento à execução das consultas dos processos
