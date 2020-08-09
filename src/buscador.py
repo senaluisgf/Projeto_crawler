@@ -14,7 +14,7 @@ class Buscador(object):
         try:
             self.numeroDigitoAno = numeroDigitoAno #guarda para preencher formulario
             self.foroNumero = foroNumero #guarda para preencher formulario
-
+#essa parada devia ser resolvida dentro do "tribunal.py"
             f = open('lista_tribunais.json','r') #abre arquivo contendo tribunais cadastrados
             tribunais = json.loads(f.read()) #salva na variavel para verificação
             f.close() #fecha arquivo
@@ -25,10 +25,12 @@ class Buscador(object):
                     self.URLS_IMPORTANTES = tribunal["Sites"]
             if not self.URLS_IMPORTANTES: #caso o processo nao pertenca a nenhum tribunal
                 print("Tribunal nao registrado")
+#--
         except Exception as e:
             print("deu ruim no buscador")
             print(e)
 
+#melhorar funcoes de GET do buscador (reduzir a somente uma funcao que busca em todas url)
     #funcao que retorna o grau e o hmtl da primeira instancia de um processo
     def getPrimeiraInstancia(self):
         try:
@@ -44,6 +46,8 @@ class Buscador(object):
             formulario_foroNumero.send_keys(self.foroNumero)
             #encontra o botao de pesquisa
             botao = fogo.find_element_by_name("pbEnviar")
+            if not botao:
+                botao = fogo.find_element_by_class_name('btn btn-primary unj-w-full')
             botao.click() #clica no botao para pesquisar e carregar nova pagina
 
             #recebe pagina contendo as informações do processo pesquisado
@@ -80,3 +84,4 @@ class Buscador(object):
         except Exception as e:
             print("Nao foi possivel pegar segunda instancia do processo")
             print(e)
+#--

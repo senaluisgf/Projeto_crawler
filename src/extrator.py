@@ -9,6 +9,7 @@ class Extrator(object):
     MOVIMENTACOES_PROCESSO = [] #separa tabela de movimentacoes do processo
     STATUS = True
 
+#preciso testar e comentar isso tudo dnv
     def __init__(self, html_pagina):
         self.coletarProcesso(html_pagina)
 
@@ -22,7 +23,6 @@ class Extrator(object):
             self.STATUS = False
             print("Não foi possivel acessar a pagina")
             print(e)
-
     def extrairDadosProcesso(self, sopa):
         try:
             self.DADOS_PROCESSO = []
@@ -40,7 +40,8 @@ class Extrator(object):
             self.STATUS = False
             print("Nao foi possivel coletar dados do processo")
             print(e)
-    
+
+#devo reimplementar de um jeito mais elegante
     def extrairPartesProcesso(self, sopa):
         try:
             self.PARTES_PROCESSO = []

@@ -1,82 +1,4 @@
-from flask import Flask, jsonify, request, render_template #biblioteca para gerar api
-import json #biblioteca para manipulacao e conversao de objetos'.json'
-
-#classes para solucionar desafio proposto
-from src.tribunal import Tribunais #cadastra e gerencia tribunais e salva processos em pastas de tribunais
-from src.processo import Processo #Armazena informacoes importantes,sobre o processo, que devem ser retornadas
-from src.buscador import Buscador #recebe numero do processo, verefica que tribunal ele pertence e retorna html do processo pesquisado
-from src.extrator import Extrator #recebe um html, isola tabelas importantes e retorda dados das tabelas
-from src.refinador import Refinador #pega dados das tabelas e coleta somente os dados desejados para o processo
-
-app = Flask(__name__)
-
-#-----------------------------------------------------##-----------------------------------------------------#
-#setando a lista de sites dos tribunais que irao ser cadastrados
-sites_tjal = [
-    {
-        "Grau": "1_instancia",
-        "URL": 'https://www2.tjal.jus.br/cpopg/open.do'
-    },
-    {
-        "Grau": "2_instancia",
-        "URL": 'https://www2.tjal.jus.br/cposg5/open.do'
-    }
-]
-sites_tjms = [
-    {
-        "Grau": "1_instancia",
-        "URL": 'https://esaj.tjms.jus.br/cpopg5/open.do'
-    },
-    {
-        "Grau": "2_instancia",
-        "URL": 'https://esaj.tjms.jus.br/cposg5/open.do'
-    }
-]
-
-#cadastrando tribunais
-tribunal_obj = Tribunais("Tribunal Justica Alagoas", "tjal", "8.02", lista_paginas=sites_tjal)
-tribunal_obj.addTribunal("Tribunal Justica Mato Grosso", "tjms", "8.12",lista_paginas=sites_tjms)
-
-#criando uma lista de processos vazia para adicionar jsons que iram ser retornados
-processos = []
-#-----------------------------------------------------##-----------------------------------------------------#
-
-#rota inicial da nossa API
-@app.route('/', methods=['GET'])
-def home():
-    return render_template('homePage.html')
-    # return '''
-    # <html>
-    # <head>
-    #     <meta charset = "UTF-8">
-    #     <title>API - Desafio JusBrasil</title>
-    # </head>
-    # <body>
-    #     <h1>Bem-Vindo!</h1>
-    #     <p>
-    #         Esta API construida por <u>Luís Guilherme</u> para resolver o 
-    #         <a href=https://gist.github.com/tarsisazevedo/966d469e8a80741334d3c4dce66cbea5 target=blank>
-    #         <em>Desafio Backend Engineer | Data</em>
-    #         </a>
-    #         proposto em uma entrevista dada à <strong>JusBrasil</strong> realizada por <u>Thiago Avelino</u>
-    #     </p>
-
-    #     <h2>Exemplo:</h2>
-    #     <p>Caso você queira obter informações do processo <strong>0710802-55.2018.8.02.0001</strong> e assumindo que a url atual é <strong>http://127.0.0.1:5000</strong>
-    #     obtendo assim o endereço <strong>http://127.0.0.1:5000/0710802-55.2018.8.02.0001</strong></p>
-    #     <h3>Algumas sugestões de processos</h3>
-    #     <p>0710802-55.2018.8.02.0001<br>
-    #     0821901-51.2018.8.12.0001<br>
-    #     0000004-35.2014.8.02.0060<br>
-    #     0000010-96.2014.8.12.0049</p>
-    # </body>
-    # </html>
-    # '''
-
-#rota para que o usuario possa obter informações do processo que deseja
-@app.route('/<string:numero_processo>', methods=['GET'])
-def getProcesso(numero_processo):
-    # return render_template('getProcesso.py', numero_processo = numero_processo)
+{{def getProcesso(numero_processo):
     aux = numero_processo.split('.')
     numero_processo1 = aux[0] + '.' +aux[1]
     numero_processo2 = aux[2] + '.' +aux[3]
@@ -150,8 +72,4 @@ def getProcesso(numero_processo):
         return jsonify({"error":"Este processo pertence a um tribunal inexistente ou nao cadastrado"}),404
     #caso o processo tenha um formato invalido
     else:
-        return jsonify({"error":"Este processo possui um formato invalido"}), 404
-
-#deixa nosso server rodando
-if __name__ == '__main__':
-    app.run(debug=True)
+        return jsonify({"error":"Este processo possui um formato invalido"}), 404}}

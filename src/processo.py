@@ -1,4 +1,5 @@
 import json
+from src.tribunal import Tribunais
 
 class Processo(object):
     STATUS = "" #informa o erro ou se esta tudo correto
@@ -86,6 +87,8 @@ class Processo(object):
         else:
             return False
 
+# processo nao deve ter acesso a arquivos do tribunal
+# vou importar o tribunal aq e testar com a funcao "getSigla()"
     def foraDoEscopo(self):
         f = open('lista_tribunais.json','r')
         tribunais = json.loads(f.read())
@@ -95,7 +98,8 @@ class Processo(object):
             if (self.OBJETO["Numero_processo"]["JTRNumeroUnificado"]==tribunal["Codigo"]):
                 return tribunal["Nome"]
         return nome
-
+        
+#testar e terminar, caso precise, essa funcao
     def __str__(self):
         if (self.formatoInvalido()):
             return 'iae Processo inválido:\nO processo possui formato invalido'

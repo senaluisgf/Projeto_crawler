@@ -1,6 +1,6 @@
 import json
 import requests
-from extrator import Extrator
+from src.extrator import Extrator
 
 class Refinador(object):
     DADOS_REFINADOS = {}
@@ -22,22 +22,23 @@ class Refinador(object):
             processo_assunto = ''
             for elemento in conteudo_dados:
                 conteudo = elemento.split(":")
-                if conteudo[0].strip() == "Classe":
+                label = conteudo[0].strip()
+                if label == "Classe":
                     processo_classe = conteudo[1].strip()
-                elif conteudo[0].strip() == "Área":
+                elif label == "Área":
                     processo_area = conteudo[-1].strip()
-                elif conteudo[0].strip() == "Assunto":
+                elif label == "Assunto":
                     processo_assunto = (conteudo[1].strip())
-                elif conteudo[0].strip() == "Juiz":
+                elif label == "Juiz":
                     processo_juiz.append(conteudo[1].strip())
-                elif conteudo[0].strip() == "Valor da ação":
+                elif label == "Valor da ação":
                     processo_acao = float(conteudo[1].split("R$")[-1].replace(".",'').replace(',', '.').strip())
-                elif conteudo[0].strip() == "Distribuição":
+                elif label == "Distribuição":
                     for item in range(1,len(conteudo)-1):
                         processo_distribuicao += conteudo[item].strip()+":"
                     processo_distribuicao += conteudo[-1]
                 elif len(conteudo)== 1:
-                    processo_distribuicao += ("\n"+conteudo[0].strip())
+                    processo_distribuicao += ("\n"+label)
                 elif conteudo[1].split()[0] == 'JUIZ':
                     junta = ''
                     for item in range(1,len(conteudo[1].split())):

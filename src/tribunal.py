@@ -106,3 +106,5 @@ class Tribunais(object):
             return 'ERROR' #caso percorra todos os tribunais e nao ache um que corresponde, retorna "ERROR"
         except:
             print("Nao foi possivel checar sigla")
+
+#adicionar uma maneira q dado o codigo do tribunal eu retorne a lista de sites
