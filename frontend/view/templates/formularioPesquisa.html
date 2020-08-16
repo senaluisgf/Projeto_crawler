@@ -1,0 +1,11 @@
+<fieldset>
+    <legend>Pesquisar Processo</legend>
+    <form action="" method='post' novalidate>
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.numero_processo.label }}
+            {{ form.numero_processo(size=30, placeholder='0000.0.00.000-00000') }}
+            {{ form.consultar() }}
+        </div>
+    </form>
+</fieldset>

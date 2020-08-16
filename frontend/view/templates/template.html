@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    {% if title %}
+        <title>API - {{title}}</title>
+    {% else %}
+        <title>API - Crawler</title>
+    {% endif %}
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+    {% include 'nav.html' %}
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    
+    {% block body %}{%endblock%}
+</body>
+</html>

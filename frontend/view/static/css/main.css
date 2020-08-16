@@ -1,0 +1,11 @@
+.warning {
+    font-size: 14px;
+}
+.warning strong {
+    font-size: 16px;
+    color: red;
+}
+
+.warning em {
+    color: orangered;
+}
