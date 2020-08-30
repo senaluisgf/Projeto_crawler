@@ -1,5 +1,12 @@
 # API - Tribunal de Justiça do Amazonas
 Esta API foi desenvolvida como um projeto pessoal para aprendizado das ferramentas: Flask, BeautifulSoup e Selenium WebDriver
+
+## Funcionalidades
+- [x]   Cadastro de Tribunais
+- [x]   Buscar processo por número
+- [ ]   Deletar processo
+- [ ]   Atualizar processo
+
 ## Requisitos
 ### Bibliotecas:
 - Numpy
@@ -8,7 +15,8 @@ Esta API foi desenvolvida como um projeto pessoal para aprendizado das ferrament
 - Flask
 - Flask-WTForms (flask_wtf)
 - Flask-SQLAlchemy  (flask_sqlalchemy)
-- Flask-Migrate (flask_migrate)  
+- Flask-Migrate (flask_migrate)
+- SQLite
 ### Navegador:
 - Mozilla Firefox
 ### Arquivos:
