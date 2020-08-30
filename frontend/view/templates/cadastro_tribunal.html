@@ -1,0 +1,48 @@
+{% extends 'template.html' %}
+
+{% block body %}
+    <h1>Cadastro</h1>
+
+    <fieldset>
+        <legend>Cadastrar Tribunal</legend>
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.nome.label }}<br>
+                {{ form.nome(size=50) }}<br>
+                {% for error in form.nome.errors %}
+                <span style="color:red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.sigla.label }}<br>
+                {{ form.sigla(size=50) }}<br>
+                {% for error in form.sigla.errors %}
+                <span style="color:red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.codigo.label }}<br>
+                {{ form.codigo(size=50) }}<br>
+                {% for error in form.codigo.errors %}
+                <span style="color:red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.grau_1.label }}<br>
+                {{ form.grau_1(size=50) }}<br>
+                {% for error in form.grau_1.errors %}
+                <span style="color:red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.site_1.label }}<br>
+                {{ form.site_1(size=50) }}<br>
+                {% for error in form.site_1.errors %}
+                <span style="color:red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>{{ form.submit() }}</p>
+        </form>
+    </fieldset>
+{% endblock %}

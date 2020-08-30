@@ -1,0 +1,17 @@
+{% extends 'template.html' %}
+
+{% block body %}
+    <h1>Lista de Tribunais</h1>
+    <ul>
+    {% for tribunal in (lista_tribunais) %}
+            <li>
+                <a 
+                href="{{ url_for('listarProcessosTribunal', sigla_tribunal=tribunal.sigla) }}"
+                >
+                    {{ tribunal.nome }}
+                </a>
+            </li>
+    {% endfor %}
+    </ul>
+    <p>Deseja cadastrar um novo tribunal? <a href="{{ url_for('cadastrarTribunal') }}">Clique aqui!</a></p>
+{% endblock %}

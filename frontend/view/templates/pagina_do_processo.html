@@ -1,0 +1,38 @@
+{% extends 'template.html' %}
+
+{% block body %}
+    <h1>{{ tribunal.nome }}({{ tribunal.sigla }})</h1>
+    <h2>Processo: {{ processo.numero }}</h2>
+
+    <fieldset>
+        <legend>Dados do Processo</legend>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Classe:</td>
+                    <td>{{ processo.classe }}</td>
+                </tr>
+                <tr>
+                    <td>Área:</td>
+                    <td>{{ processo.area }}</td>
+                </tr>
+                <tr>
+                    <td>Assunto:</td>
+                    <td>{{ processo.assunto }}</td>
+                </tr>
+                <tr>
+                    <td>Distribuição:</td>
+                    <td>{{ processo.distribuicao }}</td>
+                </tr>
+                <tr>
+                    <td>Juiz:</td>
+                    <td>{{ processo.juiz }}</td>
+                </tr>
+                <tr>
+                    <td>Valor da ação:</td>
+                    <td>{{ processo.valor_acao }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </fieldset>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'template.html' %}
+
+{% block body %}
+    <h1>{{ tribunal.nome }} <small>({{ tribunal.sigla }})</small></h1>
+    <ul>
+        {% for processo in lista_processos %}
+        <li>
+            <a
+            href="{{
+                url_for(
+                    'getProcesso',
+                    sigla_tribunal=tribunal.sigla,
+                    numero_processo=processo.numero
+                )
+            }}"
+            >
+            <span>
+                Processo: {{ processo.numero }} <br>
+                Juiz: {{ processo.juiz }}
+
+            </span>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

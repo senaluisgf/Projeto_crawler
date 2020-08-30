@@ -18,7 +18,7 @@ class Processo(db.Model):
     classe = db.Column(db.String(50))
     area = db.Column(db.String(30))
     assunto = db.Column(db.String(30))
-    distribuição = db.Column(db.String(100))
+    distribuicao = db.Column(db.String(100))
     valor_acao = db.Column(db.Float)
     tribunal_id = db.Column(db.Integer, db.ForeignKey('tribunal.id'))
 

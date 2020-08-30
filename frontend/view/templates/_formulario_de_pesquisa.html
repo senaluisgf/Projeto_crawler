@@ -5,7 +5,10 @@
         <div>
             {{ form.numero_processo.label }}
             {{ form.numero_processo(size=30, placeholder='0000.0.00.000-00000') }}
-            {{ form.consultar() }}
+            {{ form.consultar() }}<br/>
+            {% for error in form.numero_processo.errors %}
+            <span style="color:red;">[{{ error }}]</span>
+            {% endfor %}
         </div>
     </form>
 </fieldset>
