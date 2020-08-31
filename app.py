@@ -50,12 +50,12 @@ def home():
                 )
             )
         codigo_tribunal = expressao_codigo.findall(form.numero_processo.data)[0][1:]
-        # print(codigo_tribunal)
+        # print("Home: codigo tribunal - "+codigo_tribunal)
         flash("Processo nao esta no banco")
     return render_template('pagina_inicial.html', form=form)
 
 @app.route('/tribunais', methods=['GET', 'POST'])
-def tribunais():
+def listarTribunais():
     tribunais = Tribunal.query.all()
     return render_template('lista_de_tribunais.html', lista_tribunais=tribunais)
 
@@ -65,8 +65,8 @@ def cadastrarTribunal():
     if form.validate_on_submit():
         tribunal_novo = Tribunal(nome=form.nome.data, sigla=form.sigla.data, codigo=form.codigo.data)
         site_novo = Site(grau=form.grau_1.data, url=form.site_1.data, tribunal=tribunal_novo)
-        print(tribunal_novo)
-        print(site_novo)
+        # print(tribunal_novo)
+        # print(site_novo)
         db.session.add(tribunal_novo)
         db.session.add(site_novo)
         db.session.commit()
@@ -80,13 +80,13 @@ def listarProcessosTribunal(sigla_tribunal):
     lista_processos = Processo.query.filter_by(tribunal_id=tribunal.id)
     return render_template('pagina_do_tribunal.html', tribunal=tribunal, lista_processos=lista_processos)
 
-#rota para que o usuario possa obter informacoes do processo que deseja
+# rota para que o usuario possa obter informacoes do processo que deseja
 @app.route('/tribunais/<string:sigla_tribunal>/<string:numero_processo>')
 def getProcesso(sigla_tribunal, numero_processo):
     processo = Processo.query.filter_by(numero=numero_processo).first()
     tribunal = Tribunal.query.filter_by(sigla=sigla_tribunal).first()
     return render_template('pagina_do_processo.html',title='Processo', tribunal=tribunal, processo=processo)
 
-#deixa nosso server rodando
+# deixa nosso server rodando
 if __name__ == '__main__':
     app.run(debug=True)
