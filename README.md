@@ -1,6 +1,8 @@
 # API - Projeto Crawler
 Esta API foi desenvolvida inicialmente para resolver um desafio tecnico promovido pela JusBrasil, porém co o período de pandemia meu processo seletivo.
+
 Então resolvi colocar mais algumas funcionalidade, para demonstrar a aprendizagem que tive durante a resolução do desafio.
+
 Aprendizado com as ferramentas: Flask, BeautifulSoup e Selenium WebDriver
 ## Funcionalidades
 - [x]   Buscar processo na web
@@ -30,3 +32,10 @@ Todos os requisitos poderam ser ignorados depois a criação da imagem Docker
 É necessário entrar em *https://github.com/mozilla/geckodriver/releases* e baixar um geckodriver compatível com a versão do seu Firefox e extraia o arquivo na pasta **/usr/bin**
 ## Execução
 Clone o repositório abra um terminal e execute **"flask run"**
+
+# Layouts
+![HomePage](layout/layout - start.png)
+![Tribunals list](layout/layout - tribunals.png)
+![Tribunal Registration](layout/layout - register_tribunal.png)
+![Tribunal page](layout/layout - single_tribunal.png)
+![Process page](layout/layout - process.png)
