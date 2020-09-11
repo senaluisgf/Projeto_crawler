@@ -34,8 +34,8 @@ Todos os requisitos poderam ser ignorados depois a criação da imagem Docker
 Clone o repositório abra um terminal e execute **"flask run"**
 
 # Layouts
-![HomePage](layout/layout - start.png)
-![Tribunals list](layout/layout - tribunals.png)
-![Tribunal Registration](layout/layout - register_tribunal.png)
-![Tribunal page](layout/layout - single_tribunal.png)
-![Process page](layout/layout - process.png)
+![HomePage](layout/start.png)
+![Tribunals list](layout/tribunals.png)
+![Tribunal Registration](layout/register_tribunal.png)
+![Tribunal page](layout/single_tribunal.png)
+![Process page](layout/process.png)
